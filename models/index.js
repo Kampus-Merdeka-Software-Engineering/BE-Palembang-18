@@ -1,0 +1,1 @@
+export { default as office } from "./office.js";

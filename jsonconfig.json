@@ -1,0 +1,6 @@
+{
+    "compilerOptions" : {
+        "moduleResoolution" : "nodenext"
+    },
+    "exclude" : ["node_modules"]
+}
