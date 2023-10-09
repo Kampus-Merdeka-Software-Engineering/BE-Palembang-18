@@ -1,11 +1,19 @@
 import express  from "express";
-import { FindofficeByKec, createoffice } from "../services/office.js";
+import { FindofficeByKec, createoffice, findAllOffice } from "../services/office.js";
 import { httpStatusMessage } from "../constants/httpStatusMessage.js";
 
 /**
  * @param {express.Request} request
  * @param {express.Respone} response
  */
+export const getAllOffice = async (request, response) => {
+    const office = await findAllOffice();
+    response.json({
+        data : office,
+        message : httpStatusMessage[response.status]
+    });
+};
+
 export const getofficeByKec = async (request,response) =>{
     const { kecamatan } = request.params;
     const office = await FindofficeByKec(kecamatan)
