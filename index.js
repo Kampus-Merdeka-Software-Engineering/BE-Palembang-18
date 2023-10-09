@@ -1,6 +1,7 @@
 import express  from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import cors from "cors";
 import sequelize from "./config/sequelize.js";
 import { startSequelize } from "./utils/startSequelize.js";
 import "./models/index.js";
@@ -9,6 +10,8 @@ import orderRouter from "./routes/order.js";
 import akunRouter from "./routes/akun.js";
 
 dotenv.config();
+
+app.use(cors());
 
 const app = express();
 const port = process.env.PORT;
