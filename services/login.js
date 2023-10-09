@@ -20,3 +20,9 @@ export const loginService = async (username, password) => {
       throw error;
     }
   };
+
+export const createUser = async (username, password, id_admin) => {
+    return await login.create({
+        username, password:hash , id_admin
+    })
+}
