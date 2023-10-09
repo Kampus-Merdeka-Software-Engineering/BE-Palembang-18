@@ -6,6 +6,7 @@ import { startSequelize } from "./utils/startSequelize.js";
 import "./models/index.js";
 import officeRouter from "./routes/office.js";
 import orderRouter from "./routes/order.js";
+import loginRouter from "./routes/login.js";
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ app.use(bodyParser.raw());
 app.use(bodyParser.json());
 
 app.use("/api/office", officeRouter);
-app.use("/api/order", orderRouter)
+app.use("/api/order", orderRouter);
+app.use("/api/login", loginRouter)
 
 startSequelize(sequelize);
 
