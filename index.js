@@ -11,10 +11,10 @@ import akunRouter from "./routes/akun.js";
 
 dotenv.config();
 
-app.use(cors());
-
 const app = express();
 const port = process.env.PORT;
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.raw());
