@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-const login = sequelize.define("login", {
+const akun = sequelize.define("akun", {
     username: {
         type: DataTypes.STRING,
         primaryKey: true,
@@ -11,8 +11,8 @@ const login = sequelize.define("login", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    id_admin: {
-        type: DataTypes.STRING,
+    id_admin : {
+        type : DataTypes.INTEGER,
         allowNull: true,
     }},{
         tableName: 'admin_account',
@@ -20,4 +20,4 @@ const login = sequelize.define("login", {
     }
 );
 
-export default login;
+export default akun;

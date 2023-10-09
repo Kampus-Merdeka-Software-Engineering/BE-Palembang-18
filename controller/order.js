@@ -1,13 +1,26 @@
 import express, { request, response } from "express";
 import { httpStatusMessage } from "../constants/httpStatusMessage.js";
-import { FindorderByResi, createorder, findAllOrder } from "../services/order.js";
+import { FindorderByResi, changeStatusbyResi, createorder, findAllOrder } from "../services/order.js";
 
 /**
  * @param {express.Request} request
  * @param {express.Respone} response
  */
+
 export const getAllOrder = async (request, response) => {
     const order = await findAllOrder();
+    response.json({
+        data : order,
+        message : httpStatusMessage[response.status]
+    });
+};
+
+export const updateOrderStatus = async (request, response) => {
+    const { no_resi } = request.params;
+    const { status } = request.body;
+    await changeStatusbyResi(no_resi, status)
+    const order = await FindorderByResi(no_resi)
+
     response.json({
         data : order,
         message : httpStatusMessage[response.status]

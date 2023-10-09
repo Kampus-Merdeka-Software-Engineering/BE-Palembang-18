@@ -4,10 +4,17 @@ export const FindorderByResi = async ( no_resi ) =>{
     return await order.findOne ({ where : { no_resi }})
 };
 
+export const changeStatusbyResi = async (no_resi, status) =>{
+    return await order.update({
+        status,
+    },{
+        where:{no_resi},
+    })
+}
+
 export const findAllOrder = async() => {
     return await order.findAll();
 };
-
 
 export const createorder = async (
     senderName,
