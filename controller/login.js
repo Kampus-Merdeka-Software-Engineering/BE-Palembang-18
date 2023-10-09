@@ -10,7 +10,7 @@ import { createUser, loginService } from "../services/login.js";
 export const signup = async (req, res) =>{
     const { username, password } = req.body;
     const hash = await bcrypt.hash(password, 13)
-    const signup = await createUser()
+    const signup = await createUser();
 
 }
 
